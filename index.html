@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080a13">
+  <meta name="description" content="Explore a imagem astronômica da NASA para cada dia e descubra o universo através de um calendário cósmico.">
+  <title>ASTRA — Uma janela para o universo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="space-background" aria-hidden="true">
+    <span class="star star-one"></span>
+    <span class="star star-two"></span>
+    <span class="star star-three"></span>
+    <span class="star star-four"></span>
+    <span class="star star-five"></span>
+    <span class="glow glow-one"></span>
+    <span class="glow glow-two"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="ASTRA, página inicial">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="12.5" stroke="currentColor" stroke-width="1.4"/>
+          <ellipse cx="20" cy="20" rx="18" ry="7" transform="rotate(-35 20 20)" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="30.5" cy="10.4" r="2.5" fill="#b9a2ff"/>
+        </svg>
+      </span>
+      <span class="brand-name">ASTRA<span>.</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a class="nav-link active" href="#inicio">Descobrir</a>
+      <a class="nav-link" href="#calendario">Calendário</a>
+      <a class="nav-link" href="#sobre">Sobre o APOD</a>
+    </nav>
+
+    <a class="header-link" href="https://apod.nasa.gov/apod/astropix.html" target="_blank" rel="noreferrer">
+      NASA APOD <span aria-hidden="true">↗</span>
+    </a>
+  </header>
+
+  <main id="inicio">
+    <section class="intro-section">
+      <div class="eyebrow"><span class="eyebrow-line"></span> UM UNIVERSO DE DESCOBERTAS</div>
+      <h1>O universo, <span>um dia</span><br>de cada vez.</h1>
+      <p class="intro-copy">Cada data guarda uma nova perspectiva do cosmos.<br class="desktop-break"> Escolha um dia e descubra o que existe além das estrelas.</p>
+
+      <form class="date-search" id="buscar-data">
+        <label class="sr-only" for="date-input">Escolha uma data para consultar a imagem astronômica</label>
+        <span class="search-calendar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="3.5" y="5.5" width="17" height="15" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7.5 3.5V7M16.5 3.5V7M4 9.5H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <input id="input-data" name="date" type="date" value="2026-10-08" min="1995-06-16" aria-describedby="date-help">
+        <button class="primary-button" type="submit">Explorar data <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="search-hint" id="date-help">Explore o arquivo astronômico da NASA desde 16 de junho de 1995.</p>
+    </section>
+
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SUA JANELA PARA O COSMOS</p>
+          <h2 id="featured-heading">Em destaque <span class="heading-star">✳</span></h2>
+        </div>
+        <span class="live-label"><span class="live-dot"></span> EXPLORAÇÃO DIÁRIA</span>
+      </div>
+
+      <!-- O JavaScript preencherá esta área com os dados retornados pela NASA APOD. -->
+      <article class="apod-feature">
+        <div class="apod-media" id="apod-media">
+          <div class="media-placeholder">
+            <span class="placeholder-orbit" aria-hidden="true">✦</span>
+            <span>A próxima descoberta está à sua espera.</span>
+          </div>
+          <span class="media-label"><span class="media-label-dot"></span> IMAGEM ASTRONÔMICA DO DIA</span>
+        </div>
+
+        <div class="apod-info">
+          <p class="date-label" id="apod-date">08 OUTUBRO, 2026</p>
+          <h3 id="apod-title">Uma nova janela para o universo</h3>
+          <p class="apod-explanation" id="apod-explanation">Escolha uma data para descobrir a imagem astronômica publicada pela NASA, ler sua explicação e conhecer os detalhes por trás da imagem.</p>
+
+          <div class="info-divider"></div>
+          <div class="credit-block">
+            <span class="detail-label">CRÉDITOS</span>
+            <p id="apod-credit">Os créditos serão exibidos aqui após a consulta.</p>
+          </div>
+          <div class="media-type-row">
+            <span class="detail-label">TIPO DE MÍDIA</span>
+            <span class="media-type" id="apod-media-type">Aguardando consulta</span>
+          </div>
+          <a class="source-link" id="apod-source" href="https://apod.nasa.gov/apod/astropix.html" target="_blank" rel="noreferrer">
+            Ver publicação original <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+      <p class="section-note">Conteúdo e créditos fornecidos pela NASA Astronomy Picture of the Day (APOD).</p>
+    </section>
+
+    <section class="calendar-section" id="calendario" aria-labelledby="calendar-heading">
+      <div class="calendar-intro">
+        <div>
+          <p class="section-kicker">UM ARQUIVO DE MARAVILHAS</p>
+          <h2 id="calendar-heading">Explore o <span>calendário cósmico.</span></h2>
+          <p class="calendar-copy">Viaje entre os dias e encontre novas imagens, histórias e descobertas astronômicas.</p>
+        </div>
+        <div class="calendar-legend"><span class="legend-dot"></span> Data selecionada</div>
+      </div>
+
+      <div class="calendar-layout">
+        <div class="calendar-card">
+          <div class="calendar-toolbar">
+            <button class="month-arrow" id="previous-month" type="button" aria-label="Mês anterior">←</button>
+            <div class="month-title" id="calendar-month-title">Outubro <span>2026</span></div>
+            <button class="month-arrow" id="next-month" type="button" aria-label="Próximo mês">→</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span>
+          </div>
+          <!-- O JavaScript criará os dias do mês e carregará os dados da NASA. -->
+          <div class="calendar-grid" id="calendar-grid" aria-label="Dias do mês"></div>
+          <div class="calendar-footer"><span class="calendar-footer-icon">✧</span> Selecione uma data para explorar sua imagem.</div>
+        </div>
+
+        <aside class="calendar-aside">
+          <div class="aside-orbit" aria-hidden="true">
+            <div class="orbit-ring orbit-ring-one"></div>
+            <div class="orbit-ring orbit-ring-two"></div>
+            <div class="orbit-planet"></div>
+            <span class="orbit-star">✦</span>
+          </div>
+          <p class="section-kicker">O COSMOS ESPERA POR VOCÊ</p>
+          <h3>Todo dia é uma nova descoberta.</h3>
+          <p>De nebulosas distantes a planetas fascinantes, explore a coleção diária de imagens astronômicas da NASA.</p>
+          <a href="#inicio" class="text-link">Escolher uma data <span aria-hidden="true">↑</span></a>
+        </aside>
+      </div>
+      <p class="calendar-footnote">As miniaturas e os detalhes de cada dia serão carregados da API APOD. Algumas datas podem apresentar vídeos ou outros tipos de mídia.</p>
+    </section>
+
+    <section class="about-section" id="sobre">
+      <div class="about-icon" aria-hidden="true">✧</div>
+      <div>
+        <p class="section-kicker">SOBRE ESTE PROJETO</p>
+        <h2>O conhecimento também está <span>entre as estrelas.</span></h2>
+        <p>O ASTRA utiliza o serviço Astronomy Picture of the Day (APOD), da NASA, que publica diariamente uma imagem ou vídeo astronômico acompanhado de uma explicação escrita por um astrônomo profissional.</p>
+      </div>
+      <a class="about-link" href="https://apod.nasa.gov/apod/lib/about_apod.html" target="_blank" rel="noreferrer" aria-label="Saiba mais sobre o NASA APOD">↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#inicio">ASTRA<span>.</span></a>
+    <p>Feito para quem nunca deixou de olhar para o céu.</p>
+    <span>Dados astronômicos: NASA APOD</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
